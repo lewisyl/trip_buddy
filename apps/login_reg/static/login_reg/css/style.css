@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 98%;
+    margin: 3vw auto;
+}
+
+h3.text-center {
+    margin-bottom: 2vw;
+}
+
+.messages {
+    color: red;
+}
+/* 
+.posted_msgs {
+    margin: 2vw auto;
+} */

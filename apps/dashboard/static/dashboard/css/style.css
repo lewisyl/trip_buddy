@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/***************************** 
+    User Dashboard Page 
+*****************************/
+.wrapper {
+    width: 100%;
+    margin: auto;
+}
+
+.messages {
+    color: red;
+}
+
+.your_trips {
+    width: 98%;
+    margin: auto;
+}
+/***************************** 
+    Add New Trip Page 
+*****************************/
+.add_edit_trip_wrapper {
+    width: 100%;
+}
+
+.form_wrapper {
+    width: 70%;
+    margin: 1vw;
+}
+
+.justify-content-end a, .justify-content-end button {
+    margin-right: 2vw;
+}
+
+/***************************** 
+    Trip Detail Page 
+*****************************/

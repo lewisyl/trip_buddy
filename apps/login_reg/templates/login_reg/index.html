@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_reg/css/style.css' %}">
+    <title>Trip Buddy</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="text-center">Welcome to Trip Buddy</h1>
+        <h3 class="text-center">Let's travel!</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form method="POST" action="/registering">
+                        {% csrf_token %}
+                        <h2>Registration</h2>
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name"
+                                placeholder="Enter Your First Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name"
+                                placeholder="Enter Your Last Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email"
+                                placeholder="Enter Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" name="dob"
+                                placeholder="YYYY-MM-DD">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Enter Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_pw">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm_pw" name="confirm_pw"
+                                placeholder="Confirm Your Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                {% if message.extra_tags == 'register_fail' %}
+                                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </form>
+                </div>
+                <div class="col">
+                    <form method="POST" action="/logging_in">
+                        {% csrf_token %}
+                        <h2>Login</h2>
+                        <div class="form-group">
+                            <label for="login_email">Email address</label>
+                            <input type="text" class="form-control" id="login_email" name="login_email"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="login_password">Password</label>
+                            <input type="password" class="form-control" id="login_password" name="login_password"
+                                placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                {% if message.extra_tags == 'login_fail' %}
+                                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
